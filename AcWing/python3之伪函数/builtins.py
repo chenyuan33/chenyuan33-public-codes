@@ -1,3 +1,8 @@
+'''
+Built-in functions, exceptions, and other objects.
+
+Noteworthy: None is the `nil' object; Ellipsis represents `...' in slices.
+'''
 def __import__(name, globals = None, locals = None, fromlist = (), level = 0) -> type(__builtins__):
     '''
     __import__(name, globals=None, locals=None, fromlist=(), level=0) -> module
