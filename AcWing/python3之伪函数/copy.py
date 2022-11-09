@@ -45,6 +45,9 @@ __getstate__() and __setstate__().  See the documentation for module
 
 '''
 __all__ = ['Error', 'copy', 'deepcopy']
+class Error(Exception):
+    pass
+error = Error
 def copy(obj):
     '''
     Shallow copy operation on arbitrary Python objects.
@@ -65,8 +68,10 @@ def deepcopy(obj):
     '''
     res = obj
     for i in range(len(obj)):
-        if all(map(lambda x: type(res[i]) == x, dict, list, set, str, tuple)):
+        try:
+            for i in res[i]:
+                pass
             res[i] = deepcopy(res[i])
-        else:
+        except TypeError:
             res[i] = res[i]
     return res
