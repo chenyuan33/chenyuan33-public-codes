@@ -1,13 +1,13 @@
 greats:
 
-已完成:
+$\color{green}{已完成:}$
 > 1. copy.py
 
 debuggings:
 
-没有完成:
+$\color{green}{没有完成:}$
 > 1. builtins.py
 
 All see [AcWing](https://www.acwing.com/blog/content/25935/)
 
-详见 [AcWing](https://www.acwing.com/blog/content/25935/)
+$\color{green}{详见}$ _[AcWing](https://www.acwing.com/blog/content/25935/)_
