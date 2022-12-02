@@ -74,7 +74,7 @@ class object:
         '''
         Return hash(self).
         '''
-        return 166060910912
+        return hash(id(self))
     def __init__(self):
         '''
         Initialize self.  See help(type(self)) for accurate signature.
