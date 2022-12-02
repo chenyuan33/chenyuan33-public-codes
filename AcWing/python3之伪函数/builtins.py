@@ -150,7 +150,7 @@ def __import__(name, globals = None, locals = None, fromlist = (), level = 0) ->
     perform absolute or relative imports: 0 is absolute, while a positive number
     is the number of parent directories to search relative to the current module.
     '''
-    return eval('import ' + name)
+    return eval(f'import {name}' if fromlist in [(), [], set(), '', {}] else f'from {name} import {', '.join(fromlist)}')
 def input(str = None):
     '''
     Read a string from standard input.  The trailing newline is stripped.
@@ -161,10 +161,10 @@ def input(str = None):
     If the user hits EOF (*nix: Ctrl-D, Windows: Ctrl-Z+Return), raise EOFError.
     On *nix systems, readline is used if available.
     '''
-    if str != None:
+    if not str is None:
         print(str)
     for i in __import__('sys').stdin:
-        return i[0: len(i) - 1]
+        return i[:-1]
 def print(*value, sep = ' ', end = '\n', file = __import__('sys').stdout, flush = False):
     '''
     print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
@@ -177,4 +177,4 @@ def print(*value, sep = ' ', end = '\n', file = __import__('sys').stdout, flush 
     flush: whether to forcibly flush the stream.
     '''
     file.write(sep.join(value) + end)
-__builtins__ = __import__('random').choice((__import__('builtins'), __import__(__file__)))
+__builtins__ = __import__('builtins')
