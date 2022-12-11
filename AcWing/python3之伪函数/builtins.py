@@ -3,6 +3,7 @@ Built-in functions, exceptions, and other objects.
 
 Noteworthy: None is the `nil' object; Ellipsis represents `...' in slices.
 '''
+import builtins, sys
 class object:
     '''
     The base class of the class hierarchy.
@@ -165,9 +166,9 @@ def input(*prompt):
         raise TypeError('input() takes no keyword arguments') from None
     if prompt != ():
         print(prompt)
-    for i in __import__('sys').stdin:
+    for i in sys.stdin:
         return i[:-1]
-def print(*value, sep = ' ', end = '\n', file = __import__('sys').stdout, flush = False):
+def print(*value, sep = ' ', end = '\n', file = sys.stdout, flush = False):
     '''
     print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
 
@@ -179,4 +180,23 @@ def print(*value, sep = ' ', end = '\n', file = __import__('sys').stdout, flush 
     flush: whether to forcibly flush the stream.
     '''
     file.write(sep.join(value) + end)
-__builtins__ = __import__('builtins')
+__builtins__ = builtins
+copyright = _sitebuiltins._Printer('', '''\
+Copyright (c) 2001-2022 Python Software Foundation.
+All Rights Reserved.
+
+Copyright (c) 2000 BeOpen.com.
+All Rights Reserved.
+
+Copyright (c) 1995-2001 Corporation for National Research Initiatives.
+All Rights Reserved.
+
+Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.
+All Rights Reserved.\
+''')
+credits = _sitebuiltins._Printer('', '''\
+    Thanks to CWI, CNRI, BeOpen.com, Zope Corporation and a cast of thousands
+    for supporting Python development.  See www.python.org for more information.\
+''')
+exit = _sitebuiltins.Quitter('exit', 'Ctrl-D (end-of-file)')
+help = _sitebuiltins._Helper()
