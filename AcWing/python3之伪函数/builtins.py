@@ -199,4 +199,5 @@ credits = _sitebuiltins._Printer('', '''\
     for supporting Python development.  See www.python.org for more information.\
 ''')
 exit = _sitebuiltins.Quitter('exit', 'Ctrl-D (end-of-file)')
+quit = _sitebuiltins.Quitter('quit', 'Ctrl-D (end-of-file)')
 help = _sitebuiltins._Helper()
