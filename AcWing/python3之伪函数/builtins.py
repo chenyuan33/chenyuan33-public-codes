@@ -165,7 +165,7 @@ def input(*prompt):
     if len(prompt) > 1:
         raise TypeError('input() takes no keyword arguments') from None
     if prompt != ():
-        print(prompt)
+        print(prompt[0])
     for i in sys.stdin:
         return i[:-1]
 def print(*value, sep = ' ', end = '\n', file = sys.stdout, flush = False):
