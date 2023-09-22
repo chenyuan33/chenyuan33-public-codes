@@ -16,7 +16,7 @@ class object:
         '''
         Implement delattr(self, name).
         '''
-        delattr(self, name)
+        del self.__dict__[name]
     def __dir__(self):
         return [
                 '__new__',
@@ -122,7 +122,7 @@ class object:
         '''
         Implement setattr(self, name, value).
         '''
-        eval(f'self.{name} = {value}')
+        self.__dict__[name] = value
     def __sizeof__(self):
         '''
         Size of object in memory, in bytes.
