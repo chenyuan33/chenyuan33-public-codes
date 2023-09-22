@@ -4,27 +4,6 @@ Built-in functions, exceptions, and other objects.
 Noteworthy: None is the `nil' object; Ellipsis represents `...' in slices.
 '''
 import _sitebuiltins, .builtins, sys
-class NoneType(object):
-    '''
-    Non-defined:
-    `__init__`
-    '''
-    def __init__(self):
-        '''
-        Non-defined. it be `__new__`.
-        '''
-        pass
-    def __bool__(self):
-        '''
-        True if self else False
-        '''
-        return False
-    def __repr__(self):
-        '''
-        Return repr(self).
-        '''
-        return 'None'
-None_ = NoneType() # it be `None`, but than, it will raise SyntaxError.
 class object:
     '''
     The base class of the class hierarchy.
@@ -154,6 +133,23 @@ class object:
         Return str(self).
         '''
         return repr(self)
+class NoneType(object):
+    def __new__(cls):
+        '''
+        Create and return a new object.  See help(type) for accurate signature.
+        '''
+        pass
+    def __bool__(self):
+        '''
+        True if self else False
+        '''
+        return False
+    def __repr__(self):
+        '''
+        Return repr(self).
+        '''
+        return 'None'
+None_ = NoneType() # it be `None`, but than, it will raise SyntaxError.
 def __import__(name, globals = None, locals = None, fromlist = (), level = 0) -> type(__builtins__):
     '''
     __import__(name, globals=None, locals=None, fromlist=(), level=0) -> module
