@@ -3,7 +3,7 @@ Built-in functions, exceptions, and other objects.
 
 Noteworthy: None is the `nil' object; Ellipsis represents `...' in slices.
 '''
-import _sitebuiltins, builtins, sys
+import _sitebuiltins, .builtins, sys
 class object:
     '''
     The base class of the class hierarchy.
