@@ -137,8 +137,8 @@ class NoneType(object):
     def __new__(cls):
         '''
         Create and return a new object.  See help(type) for accurate signature.
-        '''
-        pass
+		'''
+        return object().__new__(cls)
     def __bool__(self):
         '''
         True if self else False
